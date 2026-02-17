@@ -1,1 +1,30 @@
 
+# -*- coding: utf-8 -*-
+"""
+Created on Sat May 18 16:02:44 2024
+
+@author: User
+"""
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.container {
+    margin: 20px;
+}
+
+.post {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
