@@ -1,0 +1,31 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat May 18 15:59:27 2024
+
+@author: User
+"""
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome, {{ user.username }}!</h1>
+    <a href="{{ url_for('post') }}">Create a Post</a>
+    <h2>Posts</h2>
+    {% for post in posts %}
+        <div class="post">
+            <p>{{ post.content }}</p>
+            <form action="{{ url_for('like', post_id=post.id) }}" method="POST">
+                <button type="submit">Like</button>
+            </form>
+            <p>Likes: {{ post.likes|length }}</p>
+            <form action="{{ url_for('comment', post_id=post.id) }}" method="POST">
+                <textarea name="content" placeholder="Add a comment"></textarea>
+                <button type="submit">Comment</button>
+            </form>
+            <h3>Comments</h3>
+            {% for comment in post.comments %}
+                <p>{{ comment.content }}</p>
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}
