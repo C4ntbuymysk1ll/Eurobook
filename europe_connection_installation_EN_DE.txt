@@ -1,0 +1,261 @@
+EUROPE-CONNECTION – INSTALLATION AND TESTING GUIDE
+
+============================= ENGLISH VERSION
+=============================
+
+1. Requirements
+
+The following software must be installed:
+
+-   Python 3.9 or newer
+-   pip (Python package manager)
+-   Optional: Spyder IDE for local testing
+
+Recommended Python packages: - flask - flask_sqlalchemy - flask_wtf -
+wtforms - werkzeug
+
+2. Project Structure
+
+Example structure of the project:
+
+Europe-connection/ │ ├── app.py ├── forms.py ├── instance/ │ └──
+database.db ├── static/ │ └── style.css ├── templates/ │ ├── base.html │
+├── index.html │ ├── login.html │ ├── post.html │ ├── profile.html │ └──
+register.html
+
+The application is based on Flask and uses SQLite as its database.
+
+3. Installation on a Server (Linux / Ubuntu)
+
+1.  Upload or extract the project
+
+Example: unzip Europe-connection.zip cd Europe-connection
+
+2.  Create a virtual Python environment
+
+python3 -m venv venv
+
+3.  Activate the virtual environment
+
+Linux / Mac: source venv/bin/activate
+
+Windows: venv
+
+4.  Install dependencies
+
+pip install flask flask_sqlalchemy flask_wtf wtforms werkzeug
+
+5.  Start the application
+
+python app.py
+
+When starting the application for the first time, the SQLite database
+will be created automatically.
+
+The application will then be available at:
+
+http://127.0.0.1:5000
+
+4. Deployment on a Production Server (Optional)
+
+For production environments it is recommended to use:
+
+-   Gunicorn
+-   Nginx (reverse proxy)
+
+Install Gunicorn:
+
+pip install gunicorn
+
+Start the server:
+
+gunicorn -w 4 app:app
+
+5. Local Testing with Spyder
+
+1.  Start Spyder
+
+2.  Open the project file: File → Open → app.py
+
+3.  Make sure the required packages are installed:
+
+pip install flask flask_sqlalchemy flask_wtf wtforms werkzeug
+
+4.  Run the application
+
+Run → Run file
+
+or press: F5
+
+5.  The console will show:
+
+Running on http://127.0.0.1:5000
+
+6.  Open your browser and navigate to:
+
+http://127.0.0.1:5000
+
+6. Database
+
+The application uses SQLite:
+
+instance/database.db
+
+The tables are automatically created using:
+
+db.create_all()
+
+during the first start.
+
+7. Important Notes
+
+Change the SECRET_KEY before production use.
+
+Example in app.py:
+
+app.config[‘SECRET_KEY’] = ‘CHANGE_THIS_SECRET_KEY’
+
+If uploads are required, create an uploads folder:
+
+mkdir uploads
+
+8. Stopping the Application
+
+Press:
+
+CTRL + C
+
+in the terminal to stop the server.
+
+================================================== DEUTSCHE VERSION
+==================================================
+
+1. Voraussetzungen
+
+Folgende Software muss installiert sein:
+
+-   Python 3.9 oder neuer
+-   pip (Python Paketmanager)
+-   Optional: Spyder IDE zum lokalen Testen
+
+Empfohlene Python Pakete:
+
+-   flask
+-   flask_sqlalchemy
+-   flask_wtf
+-   wtforms
+-   werkzeug
+
+2. Projektstruktur
+
+Beispielstruktur des Projekts:
+
+Europe-connection/ │ ├── app.py ├── forms.py ├── instance/ │ └──
+database.db ├── static/ │ └── style.css ├── templates/ │ ├── base.html │
+├── index.html │ ├── login.html │ ├── post.html │ ├── profile.html │ └──
+register.html
+
+Die Anwendung basiert auf Flask und verwendet SQLite als Datenbank.
+
+3. Installation auf einem Server (Linux / Ubuntu)
+
+1.  Projekt hochladen oder entpacken
+
+Beispiel:
+
+unzip Europe-connection.zip cd Europe-connection
+
+2.  Virtuelle Python Umgebung erstellen
+
+python3 -m venv venv
+
+3.  Virtuelle Umgebung aktivieren
+
+Linux / Mac: source venv/bin/activate
+
+Windows: venv
+
+4.  Abhängigkeiten installieren
+
+pip install flask flask_sqlalchemy flask_wtf wtforms werkzeug
+
+5.  Anwendung starten
+
+python app.py
+
+Beim ersten Start wird automatisch die SQLite Datenbank erstellt.
+
+Die Anwendung ist danach erreichbar unter:
+
+http://127.0.0.1:5000
+
+4. Deployment auf einem Produktionsserver (Optional)
+
+Für Produktionssysteme empfiehlt sich:
+
+-   Gunicorn
+-   Nginx (Reverse Proxy)
+
+Gunicorn installieren:
+
+pip install gunicorn
+
+Server starten:
+
+gunicorn -w 4 app:app
+
+5. Lokales Testen mit Spyder
+
+1.  Spyder starten
+
+2.  Projektdatei öffnen: File → Open → app.py
+
+3.  Sicherstellen, dass alle Pakete installiert sind:
+
+pip install flask flask_sqlalchemy flask_wtf wtforms werkzeug
+
+4.  Anwendung ausführen
+
+Run → Run file
+
+oder Taste: F5
+
+5.  In der Konsole erscheint:
+
+Running on http://127.0.0.1:5000
+
+6.  Browser öffnen und folgende Adresse aufrufen:
+
+http://127.0.0.1:5000
+
+6. Datenbank
+
+Die Anwendung nutzt SQLite:
+
+instance/database.db
+
+Die Tabellen werden automatisch erstellt mit:
+
+db.create_all()
+
+beim ersten Start.
+
+7. Wichtige Hinweise
+
+SECRET_KEY vor dem Produktivbetrieb ändern.
+
+Beispiel in app.py:
+
+app.config[‘SECRET_KEY’] = ‘CHANGE_THIS_SECRET_KEY’
+
+Falls Uploads verwendet werden:
+
+mkdir uploads
+
+8. Anwendung stoppen
+
+Im Terminal:
+
+CTRL + C
+
+drücken, um den Server zu stoppen.
